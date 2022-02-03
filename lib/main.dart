@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:user_login/SignupPage.dart';
 
 import 'PreSignUpPage.dart';
 
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const PreSignupPage(title: 'User Login/Signup'),
+      home: SignUpPage()
+      // const PreSignupPage(title: 'User Login/Signup'),
     );
   }
 }
