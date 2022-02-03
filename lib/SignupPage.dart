@@ -2,6 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:user_login/Utils/appTheme.dart';
 
+
+import 'Components/PrimaryButton.dart';
+import 'Components/SocialLoginButtonWidget.dart';
 import 'HomePage.dart';
 import 'package:lottie/lottie.dart';
 
@@ -43,6 +46,7 @@ class _SignUpPageState extends State<SignUpPage> {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
+            //Container with Lottie animation
             Container(
               width: MediaQuery.of(context).size.width * 0.5,
               height: MediaQuery.of(context).size.height * 0.15,
@@ -64,10 +68,11 @@ class _SignUpPageState extends State<SignUpPage> {
                 ],
               ),
             ),
+            //---This is the container with full Sign-up form
             Container(
               width: double.infinity,
               height: MediaQuery.of(context).size.height * 0.65,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(0),
@@ -87,6 +92,28 @@ class _SignUpPageState extends State<SignUpPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [Text('SIGN UP')],
                     ),
+                    Spacer(),
+                    //--- This is the row of social login buttons---
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        //Social Log In container Widget
+                        SocialLoginButtonWidget(
+                          onPressed: (){},
+                          socialImage: Image.asset('assets/googleLogo.png',alignment: Alignment.center,),
+                        ),
+                        SocialLoginButtonWidget(
+                          onPressed: (){},
+                            socialImage: Image.asset('assets/fbLogo.png',alignment: Alignment.center,)
+                        ),
+                        SocialLoginButtonWidget(
+                          onPressed: (){},
+                            socialImage: Image.asset('assets/appleLogo.png',alignment: Alignment.center,)
+                        ),
+                      ],
+                    ),
+                    Spacer(),
                     Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -96,8 +123,8 @@ class _SignUpPageState extends State<SignUpPage> {
                           height: 2,
                           color: AppTheme.kMediumEmphasisColor,
                         ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(4, 0, 4, 0),
+                        const Padding(
+                          padding: EdgeInsets.fromLTRB(4, 0, 4, 0),
                           child: Text('Or register with email'),
                         ),
                         Container(
@@ -118,14 +145,14 @@ class _SignUpPageState extends State<SignUpPage> {
                           hintStyle:
                               TextStyle(color: AppTheme.kMediumEmphasisColor),
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0x00000000),
                               width: 1,
                             ),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0x00000000),
                               width: 1,
                             ),
@@ -135,7 +162,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           fillColor: Color(0x4C3F414C),
                           contentPadding:
                               EdgeInsetsDirectional.fromSTEB(12, 2, 12, 2),
-                          prefixIcon: Icon(
+                          prefixIcon: const Icon(
                             Icons.alternate_email,
                           ),
                         ),
@@ -151,14 +178,14 @@ class _SignUpPageState extends State<SignUpPage> {
                           hintStyle:
                               TextStyle(color: AppTheme.kMediumEmphasisColor),
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0x00000000),
                               width: 1,
                             ),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0x00000000),
                               width: 1,
                             ),
@@ -168,7 +195,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           fillColor: Color(0x4C3F414C),
                           contentPadding:
                               EdgeInsetsDirectional.fromSTEB(12, 2, 12, 2),
-                          prefixIcon: Icon(
+                          prefixIcon: const Icon(
                             Icons.lock_open_outlined,
                           ),
                           suffixIcon: InkWell(
@@ -220,17 +247,10 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                       ),
                     ),
-                    Container(
-                      height: 50,
-                      width: 240,
-                      child: ElevatedButton(
-                          style: ButtonStyle(
-                            fixedSize: MaterialStateProperty.all(Size.fromWidth(200.0)),
-                            backgroundColor: MaterialStateProperty.all(AppTheme.kPrimaryColor)
-                          ),
-                          onPressed: () {},
-                          child: Text('Sign Up')),
-                    )
+                    PrimaryButtonWidget(
+                      buttonText: Text('SignUp'),
+                    ),
+                    Spacer(),
                   ],
                 ),
               ),
@@ -241,3 +261,6 @@ class _SignUpPageState extends State<SignUpPage> {
     );
   }
 }
+
+
+
